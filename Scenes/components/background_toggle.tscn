@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dpff038vnbki1"]
+
+[ext_resource type="Script" uid="uid://buk6dmj42egoq" path="res://Scripts/components/background_toggle.gd" id="1_hqx4f"]
+
+[node name="background_toggle" type="Node" unique_id=1157733336]
+script = ExtResource("1_hqx4f")

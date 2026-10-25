@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://h4wivseyhkps"]
+
+[ext_resource type="Script" uid="uid://b3qfmwwqvaaex" path="res://Scripts/title_screen.gd" id="1_373if"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="1_yufut"]
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="2_u8apu"]
+[ext_resource type="Texture2D" uid="uid://cj14qcq5wdfko" path="res://Assets/Sprites/AdaFallingCat.png" id="5_jg70r"]
+[ext_resource type="FontFile" uid="uid://cq5xmmnbacsgy" path="res://Assets/fonts/8bitlim.ttf" id="5_q6qml"]
+[ext_resource type="Texture2D" uid="uid://c88hmrvaxipq" path="res://Assets/Sprites/FunhouseTile.png" id="6_jg70r"]
+[ext_resource type="AudioStream" uid="uid://brdpvj224ir4b" path="res://Assets/sounds/freesound_community-bit-bubbles-82769.wav" id="7_qf6mx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+line_spacing = 0.0
+font = ExtResource("5_q6qml")
+font_size = 96
+font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+outline_size = 1
+outline_color = Color(0.5882353, 0.5686275, 0.6666667, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf6mx"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfhh4"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nuaw"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1gec"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm07"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cihu5"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s48fc"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdcmi"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ads8t"]
+atlas = ExtResource("5_jg70r")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf6mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfhh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nuaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1gec")
+}, {
+"duration": 50.0,
+"texture": SubResource("AtlasTexture_qfm07")
+}],
+"loop": 1,
+"name": &"falling",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cihu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s48fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdcmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ads8t")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="TitleScreen" type="Control" unique_id=295206548]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_373if")
+
+[node name="CRT" parent="." unique_id=1413880092 instance=ExtResource("1_yufut")]
+
+[node name="Backgrounds" type="Control" parent="." unique_id=1534344105]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Background" parent="Backgrounds" unique_id=791919943 instance=ExtResource("2_u8apu")]
+layout_mode = 1
+
+[node name="BackgroundColor" parent="Backgrounds/Background" index="0" unique_id=789598074]
+color = Color(0.21960784, 0.050980393, 0.18039216, 1)
+
+[node name="BackgroundArrows" parent="Backgrounds/Background" index="1" unique_id=1632947107]
+visible = false
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1352046505]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 1280.0
+offset_bottom = 315.0
+text = "The Falling
+Cat Problem"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=989621583]
+process_mode = 3
+z_index = 1
+layout_mode = 0
+offset_top = 448.0
+offset_right = 1280.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_pressed_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_hover_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("5_q6qml")
+theme_override_font_sizes/font_size = 48
+text = "CLICK ME!"
+flat = true
+icon_alignment = 1
+
+[node name="CatSprite" type="AnimatedSprite2D" parent="." unique_id=662904932]
+position = Vector2(1088, 192)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"falling"
+flip_v = true
+
+[node name="FunhouseTile" type="Sprite2D" parent="." unique_id=1885945409]
+position = Vector2(1056, 96)
+scale = Vector2(4, 4)
+texture = ExtResource("6_jg70r")
+
+[node name="FunhouseTile2" type="Sprite2D" parent="." unique_id=2069341066]
+position = Vector2(1120, 96)
+scale = Vector2(4.000001, 4)
+texture = ExtResource("6_jg70r")
+
+[node name="toggle" type="AudioStreamPlayer" parent="." unique_id=1764552890]
+stream = ExtResource("7_qf6mx")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+
+[editable path="Backgrounds/Background"]

@@ -1,0 +1,70 @@
+[gd_scene format=4 uid="uid://du2yndupwha76"]
+
+[ext_resource type="Script" uid="uid://hyfac0jmsbpv" path="res://Scripts/room_2.gd" id="1_8aln6"]
+[ext_resource type="PackedScene" uid="uid://b0mt5cpvft073" path="res://Scenes/tile_map_layer.tscn" id="1_e4ips"]
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="2_b204x"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="3_a2ddn"]
+[ext_resource type="PackedScene" uid="uid://c17qlyfd43u8u" path="res://Scenes/components/fail_screen.tscn" id="5_4qow7"]
+[ext_resource type="PackedScene" uid="uid://dp1b1hcs8nijb" path="res://Scenes/leave_screen.tscn" id="6_ghlka"]
+[ext_resource type="PackedScene" uid="uid://dwxcct4rxwnxh" path="res://Scenes/player.tscn" id="8_aund5"]
+[ext_resource type="PackedScene" uid="uid://ba426ivdx40sa" path="res://Scenes/key.tscn" id="8_ghlka"]
+[ext_resource type="PackedScene" uid="uid://bunni77vlkg4m" path="res://Scenes/lock_box.tscn" id="9_aund5"]
+[ext_resource type="PackedScene" uid="uid://bspc3fxfi3isc" path="res://Scenes/win_zone.tscn" id="9_nqevu"]
+[ext_resource type="PackedScene" uid="uid://3qfxiqlqj15q" path="res://Scenes/moving_platform.tscn" id="10_nqevu"]
+[ext_resource type="PackedScene" uid="uid://bafnkyl0sbbjt" path="res://Scenes/blast_zone.tscn" id="10_y6ew2"]
+
+[node name="Room2" type="Node2D" unique_id=918238180]
+script = ExtResource("1_8aln6")
+
+[node name="TileMapLayer" parent="." unique_id=1212374764 instance=ExtResource("1_e4ips")]
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAQAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAARAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAADAAkAAAAAAAAAAAAHAAUAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAASAAAAAAAAAAAAAAASAAoAAAAAAAAAAAA=")
+
+[node name="Visuals" type="Node2D" parent="TileMapLayer" unique_id=513994630]
+z_index = -1
+scale = Vector2(0.25, 0.25)
+
+[node name="Background" parent="TileMapLayer/Visuals" unique_id=791919943 instance=ExtResource("2_b204x")]
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="CRT" parent="TileMapLayer/Visuals" unique_id=1413880092 instance=ExtResource("3_a2ddn")]
+
+[node name="FailScreen" parent="TileMapLayer/Visuals" unique_id=115227845 instance=ExtResource("5_4qow7")]
+z_index = 2
+
+[node name="LeaveScreen" parent="TileMapLayer/Visuals" unique_id=159286898 instance=ExtResource("6_ghlka")]
+
+[node name="objects" type="Node2D" parent="." unique_id=772200403]
+
+[node name="Key" parent="objects" unique_id=1074676594 instance=ExtResource("8_ghlka")]
+position = Vector2(1136, 320)
+
+[node name="lockboxes" type="Node2D" parent="objects" unique_id=152945479]
+
+[node name="LockBox" parent="objects/lockboxes" unique_id=1400770242 instance=ExtResource("9_aund5")]
+position = Vector2(64, 640)
+
+[node name="LockBox2" parent="objects/lockboxes" unique_id=1663192683 instance=ExtResource("9_aund5")]
+position = Vector2(128, 640)
+
+[node name="MovingPlatform" parent="objects" unique_id=1348151779 instance=ExtResource("10_nqevu")]
+position = Vector2(960, 448)
+distance = 50.0
+speed = 3.0
+oscillation = 50.0
+
+[node name="player" parent="." unique_id=1398794018 instance=ExtResource("8_aund5")]
+position = Vector2(128, 752)
+
+[node name="zones" type="Node2D" parent="." unique_id=41767988]
+
+[node name="WinZone" parent="zones" unique_id=2008774154 instance=ExtResource("9_nqevu")]
+position = Vector2(64, 784)
+next_room = "uid://bjp0w8c5ixx2u"
+
+[node name="blast_zone" parent="zones" unique_id=408572967 instance=ExtResource("10_y6ew2")]
+position = Vector2(0, -112)
+
+[node name="blast_zone2" parent="zones" unique_id=1770314545 instance=ExtResource("10_y6ew2")]
+position = Vector2(0, 816)

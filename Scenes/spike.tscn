@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bnfg6tnglqlay"]
+
+[ext_resource type="Script" uid="uid://c5mokn0c4jrd5" path="res://Scripts/objects/spike.gd" id="1_1hotg"]
+[ext_resource type="PackedScene" uid="uid://d1fipkm82sh4d" path="res://Scenes/components/hitbox.tscn" id="2_1hotg"]
+[ext_resource type="Texture2D" uid="uid://bn25wsdxk6auw" path="res://Assets/Sprites/FunhouseSpike.png" id="2_2mnih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(32.125, 32)
+
+[node name="Spike" type="Area2D" unique_id=106112012]
+collision_layer = 2
+script = ExtResource("1_1hotg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=459943607]
+scale = Vector2(4, 4)
+texture = ExtResource("2_2mnih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050745959]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Hitbox" parent="." unique_id=332707044 node_paths=PackedStringArray("detection_area") instance=ExtResource("2_1hotg")]
+detection_area = NodePath("..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ba426ivdx40sa"]
+
+[ext_resource type="Script" uid="uid://c6hsvsjxr5hdq" path="res://Scripts/objects/key.gd" id="1_brn0f"]
+[ext_resource type="Shader" uid="uid://6ut2oyoblb75" path="res://Scenes/shaders/key.gdshader" id="1_udxw8"]
+[ext_resource type="Texture2D" uid="uid://duvcastpqnjsw" path="res://Assets/Sprites/Key.png" id="2_brn0f"]
+[ext_resource type="AudioStream" uid="uid://ikwi4ujxpqiw" path="res://Assets/sounds/driken5482-retro-coin-4-236671.mp3" id="4_lc1k7"]
+[ext_resource type="AudioStream" uid="uid://b108wk2hxy447" path="res://Assets/sounds/u_b32baquv5u-8-bit-explosion-10-340462.mp3" id="5_58hov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(48, 48)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("1_udxw8")
+shader_parameter/Angle_deg = 30.0
+shader_parameter/Brightness = 3.0
+shader_parameter/Band_Soft = 0.06
+shader_parameter/Stage_Count = 2
+shader_parameter/Stage1_Duration = 1.0
+shader_parameter/Stage2_Duration = 1.5
+shader_parameter/Stage3_Duration = 1.0
+shader_parameter/Stage1_Width = 0.12
+shader_parameter/Stage2_Width = 0.12
+shader_parameter/Stage3_Width = 0.12
+shader_parameter/Stage1_LeftToRight = true
+shader_parameter/Stage2_LeftToRight = false
+shader_parameter/Stage3_LeftToRight = true
+shader_parameter/One_Shot = false
+shader_parameter/OneShot_Delay = 0.0
+shader_parameter/Phase_Offset = 0.0
+shader_parameter/Wiggle_Angle = false
+shader_parameter/Wiggle_Amount_deg = 15.0
+shader_parameter/Shine_Pause = 0.4
+
+[node name="Key" type="Area2D" unique_id=1074676594 node_paths=PackedStringArray("key") groups=["key"]]
+collision_layer = 4
+script = ExtResource("1_brn0f")
+key = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1666951494]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=522165855]
+material = SubResource("ShaderMaterial_yf5fn")
+position = Vector2(32, 32)
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("2_brn0f")
+
+[node name="KeyGrab" type="AudioStreamPlayer2D" parent="." unique_id=311316565]
+stream = ExtResource("4_lc1k7")
+
+[node name="Bang" type="AudioStreamPlayer2D" parent="." unique_id=1448961290]
+stream = ExtResource("5_58hov")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

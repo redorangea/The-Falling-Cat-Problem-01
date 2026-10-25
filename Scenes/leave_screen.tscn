@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dp1b1hcs8nijb"]
+
+[ext_resource type="Script" uid="uid://cf4gtgpyv3uf1" path="res://Scripts/leave_screen.gd" id="1_4ntgq"]
+[ext_resource type="FontFile" uid="uid://dqh3e4540ccsi" path="res://Assets/fonts/nintendo-nes-font.ttf" id="2_q8stm"]
+
+[node name="LeaveScreen" type="Control" unique_id=159286898]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ntgq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1270199904]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.3529412)
+
+[node name="Label" type="Label" parent="." unique_id=1215468269]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 288.0
+offset_right = 880.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_q8stm")
+theme_override_font_sizes/font_size = 48
+text = "LEAVE"
+horizontal_alignment = 1
+vertical_alignment = 1

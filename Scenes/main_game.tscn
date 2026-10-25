@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cy3x8ls8ax3mp"]
+
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="1_0e3vx"]
+[ext_resource type="Script" uid="uid://d4cu3kkj2td4r" path="res://Scripts/main_game.gd" id="1_18r40"]
+[ext_resource type="PackedScene" uid="uid://dwxcct4rxwnxh" path="res://Scenes/player.tscn" id="1_l756w"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="4_6j5ir"]
+[ext_resource type="PackedScene" uid="uid://ba426ivdx40sa" path="res://Scenes/key.tscn" id="4_bb2iq"]
+[ext_resource type="PackedScene" uid="uid://c17qlyfd43u8u" path="res://Scenes/components/fail_screen.tscn" id="4_c78sm"]
+[ext_resource type="PackedScene" uid="uid://b0mt5cpvft073" path="res://Scenes/tile_map_layer.tscn" id="5_6y7pd"]
+[ext_resource type="PackedScene" uid="uid://dp1b1hcs8nijb" path="res://Scenes/leave_screen.tscn" id="5_i47ox"]
+[ext_resource type="PackedScene" uid="uid://3qfxiqlqj15q" path="res://Scenes/moving_platform.tscn" id="6_bb2iq"]
+[ext_resource type="PackedScene" uid="uid://bunni77vlkg4m" path="res://Scenes/lock_box.tscn" id="8_6y7pd"]
+[ext_resource type="PackedScene" uid="uid://bspc3fxfi3isc" path="res://Scenes/win_zone.tscn" id="9_73nn6"]
+[ext_resource type="PackedScene" uid="uid://bnfg6tnglqlay" path="res://Scenes/spike.tscn" id="9_tpqse"]
+[ext_resource type="PackedScene" uid="uid://bafnkyl0sbbjt" path="res://Scenes/blast_zone.tscn" id="11_0xqxu"]
+
+[node name="main_game" type="Node2D" unique_id=1766952595]
+script = ExtResource("1_18r40")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=740534012]
+z_index = -1
+
+[node name="Background" parent="Visuals" unique_id=791919943 instance=ExtResource("1_0e3vx")]
+z_index = -1
+
+[node name="CRT" parent="Visuals" unique_id=1413880092 instance=ExtResource("4_6j5ir")]
+
+[node name="FailScreen" parent="Visuals" unique_id=115227845 instance=ExtResource("4_c78sm")]
+z_index = 2
+
+[node name="LeaveScreen" parent="Visuals" unique_id=159286898 instance=ExtResource("5_i47ox")]
+
+[node name="player" parent="." unique_id=1398794018 instance=ExtResource("1_l756w")]
+position = Vector2(128, -32)
+
+[node name="TileMapLayer" parent="." unique_id=1212374764 instance=ExtResource("5_6y7pd")]
+
+[node name="objects" type="Node2D" parent="." unique_id=1608188240]
+
+[node name="MovingPlatform" parent="objects" unique_id=1348151779 instance=ExtResource("6_bb2iq")]
+position = Vector2(736, 384)
+speed = 2.0
+
+[node name="Key" parent="objects" unique_id=1074676594 instance=ExtResource("4_bb2iq")]
+position = Vector2(1120, 544)
+
+[node name="LockBox" parent="objects" unique_id=1400770242 instance=ExtResource("8_6y7pd")]
+position = Vector2(64, 0)
+
+[node name="LockBox2" parent="objects" unique_id=960913163 instance=ExtResource("8_6y7pd")]
+position = Vector2(128, 0)
+
+[node name="Spike" parent="objects" unique_id=106112012 instance=ExtResource("9_tpqse")]
+position = Vector2(416, 160)
+
+[node name="Spike2" parent="objects" unique_id=1946420297 instance=ExtResource("9_tpqse")]
+position = Vector2(224, 544)
+flip_v = true
+
+[node name="zones" type="Node2D" parent="." unique_id=1084436209]
+
+[node name="WinZone" parent="zones" unique_id=2008774154 instance=ExtResource("9_73nn6")]
+position = Vector2(64, -136)
+next_room = "uid://du2yndupwha76"
+
+[node name="blast_zone" parent="zones" unique_id=408572967 instance=ExtResource("11_0xqxu")]
+position = Vector2(0, -112)
+
+[node name="blast_zone2" parent="zones" unique_id=1679443995 instance=ExtResource("11_0xqxu")]
+position = Vector2(0, 816)

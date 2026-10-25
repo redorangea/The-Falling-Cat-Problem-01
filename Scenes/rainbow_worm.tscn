@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://wvyteqpv6kw2"]
+
+[ext_resource type="Texture2D" uid="uid://kui8hxps7ukm" path="res://Assets/Sprites/RainbowWorm.png" id="1_1s37v"]
+[ext_resource type="Script" uid="uid://dtr60uvpwetls" path="res://Scripts/objects/rainbow_worm.gd" id="1_kywbk"]
+[ext_resource type="Shader" uid="uid://cnng7ss0exrji" path="res://Scenes/shaders/rainbow_worm.gdshader" id="2_lk4lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(56, 80)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqrt5"]
+shader = ExtResource("2_lk4lj")
+shader_parameter/color1 = Color(0, 0, 0, 1)
+shader_parameter/color2 = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.0
+shader_parameter/intensity = 1.5
+shader_parameter/opacity = 0.0
+shader_parameter/glow_color = Color(1, 0.9, 0.5, 1)
+
+[node name="RainbowWorm" type="Area2D" unique_id=1020816110]
+collision_layer = 4
+script = ExtResource("1_kywbk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=979928064]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1444663938]
+material = SubResource("ShaderMaterial_wqrt5")
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("1_1s37v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

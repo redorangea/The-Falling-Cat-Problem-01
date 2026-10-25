@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2vb15r6xorvg"]
+
+[ext_resource type="Script" uid="uid://cw787gy4gw8yf" path="res://Scripts/components/gravity_toggle.gd" id="1_50r2h"]
+
+[node name="gravity_toggle" type="Node" unique_id=38063784]
+script = ExtResource("1_50r2h")

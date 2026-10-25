@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://xsc1wrxw8qjc"]
+
+[ext_resource type="Script" uid="uid://yxorjrcwy5kx" path="res://Scripts/objects/background.gd" id="1_4aqey"]
+[ext_resource type="Shader" uid="uid://dm3j6decm0ccx" path="res://Scenes/shaders/background.gdshader" id="2_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://6o7h4mx7ovaf" path="res://Assets/Sprites/BackgroundArrow.png" id="2_xgxeb"]
+[ext_resource type="PackedScene" uid="uid://dpff038vnbki1" path="res://Scenes/components/background_toggle.tscn" id="3_ltlj5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6j5ir"]
+shader = ExtResource("2_ltlj5")
+
+[node name="Background" type="Control" unique_id=791919943 node_paths=PackedStringArray("background_toggle_component")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4aqey")
+background_toggle_component = NodePath("background_toggle")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=789598074]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.101960786, 0.15686275, 0.39215687, 1)
+
+[node name="BackgroundArrows" type="TextureRect" parent="." unique_id=1632947107]
+texture_filter = 5
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6j5ir")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("2_xgxeb")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=216628070]
+layout_mode = 0
+offset_top = 704.0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="background_toggle" parent="." unique_id=1157733336 node_paths=PackedStringArray("background", "background_arrows") instance=ExtResource("3_ltlj5")]
+background = NodePath("../BackgroundColor")
+background_arrows = NodePath("../BackgroundArrows")

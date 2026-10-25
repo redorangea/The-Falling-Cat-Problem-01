@@ -1,0 +1,158 @@
+[gd_scene format=4 uid="uid://c186xxfpqe8au"]
+
+[ext_resource type="Script" uid="uid://hyfac0jmsbpv" path="res://Scripts/room_2.gd" id="1_i1s8s"]
+[ext_resource type="PackedScene" uid="uid://b0mt5cpvft073" path="res://Scenes/tile_map_layer.tscn" id="2_b7q4o"]
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="3_3d5js"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="4_vxt0b"]
+[ext_resource type="PackedScene" uid="uid://c17qlyfd43u8u" path="res://Scenes/components/fail_screen.tscn" id="5_46mjx"]
+[ext_resource type="PackedScene" uid="uid://dp1b1hcs8nijb" path="res://Scenes/leave_screen.tscn" id="6_ujdp5"]
+[ext_resource type="PackedScene" uid="uid://ba426ivdx40sa" path="res://Scenes/key.tscn" id="7_ib7wk"]
+[ext_resource type="PackedScene" uid="uid://bunni77vlkg4m" path="res://Scenes/lock_box.tscn" id="8_vqggd"]
+[ext_resource type="PackedScene" uid="uid://cmv4wt6vkbcof" path="res://Scenes/disappearing_platform.tscn" id="9_i1s8s"]
+[ext_resource type="PackedScene" uid="uid://cp8tkvd6vfhtq" path="res://Scenes/ghost.tscn" id="10_b7q4o"]
+[ext_resource type="PackedScene" uid="uid://dwxcct4rxwnxh" path="res://Scenes/player.tscn" id="10_sijio"]
+[ext_resource type="PackedScene" uid="uid://bspc3fxfi3isc" path="res://Scenes/win_zone.tscn" id="11_agqg5"]
+[ext_resource type="PackedScene" uid="uid://bafnkyl0sbbjt" path="res://Scenes/blast_zone.tscn" id="12_tc56o"]
+
+[node name="Room6" type="Node2D" unique_id=918238180]
+script = ExtResource("1_i1s8s")
+
+[node name="TileMapLayer" parent="." unique_id=1212374764 instance=ExtResource("2_b7q4o")]
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAADAAoAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAQAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAA=")
+
+[node name="Visuals" type="Node2D" parent="TileMapLayer" unique_id=513994630]
+z_index = -1
+scale = Vector2(0.25, 0.25)
+
+[node name="Background" parent="TileMapLayer/Visuals" unique_id=791919943 instance=ExtResource("3_3d5js")]
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="CRT" parent="TileMapLayer/Visuals" unique_id=1413880092 instance=ExtResource("4_vxt0b")]
+
+[node name="FailScreen" parent="TileMapLayer/Visuals" unique_id=115227845 instance=ExtResource("5_46mjx")]
+z_index = 2
+
+[node name="LeaveScreen" parent="TileMapLayer/Visuals" unique_id=159286898 instance=ExtResource("6_ujdp5")]
+
+[node name="objects" type="Node2D" parent="." unique_id=772200403]
+
+[node name="Key" parent="objects" unique_id=1074676594 instance=ExtResource("7_ib7wk")]
+position = Vector2(928, 320)
+
+[node name="lockboxes" type="Node2D" parent="objects" unique_id=152945479]
+
+[node name="LockBox" parent="objects/lockboxes" unique_id=1400770242 instance=ExtResource("8_vqggd")]
+position = Vector2(64, 640)
+
+[node name="LockBox2" parent="objects/lockboxes" unique_id=1663192683 instance=ExtResource("8_vqggd")]
+position = Vector2(128, 640)
+
+[node name="disappering_platforms" type="Node2D" parent="objects" unique_id=1083796568]
+
+[node name="DisappearingPlatform" parent="objects/disappering_platforms" unique_id=1366002728 instance=ExtResource("9_i1s8s")]
+position = Vector2(64, 192)
+
+[node name="DisappearingPlatform2" parent="objects/disappering_platforms" unique_id=303538540 instance=ExtResource("9_i1s8s")]
+position = Vector2(128, 192)
+
+[node name="DisappearingPlatform3" parent="objects/disappering_platforms" unique_id=1597999464 instance=ExtResource("9_i1s8s")]
+position = Vector2(192, 192)
+
+[node name="DisappearingPlatform4" parent="objects/disappering_platforms" unique_id=1784869430 instance=ExtResource("9_i1s8s")]
+position = Vector2(256, 192)
+
+[node name="DisappearingPlatform5" parent="objects/disappering_platforms" unique_id=1968385476 instance=ExtResource("9_i1s8s")]
+position = Vector2(320, 192)
+
+[node name="DisappearingPlatform6" parent="objects/disappering_platforms" unique_id=1443148202 instance=ExtResource("9_i1s8s")]
+position = Vector2(384, 192)
+
+[node name="DisappearingPlatform7" parent="objects/disappering_platforms" unique_id=278972630 instance=ExtResource("9_i1s8s")]
+position = Vector2(448, 192)
+
+[node name="DisappearingPlatform8" parent="objects/disappering_platforms" unique_id=2563468 instance=ExtResource("9_i1s8s")]
+position = Vector2(512, 192)
+
+[node name="DisappearingPlatform9" parent="objects/disappering_platforms" unique_id=1403270159 instance=ExtResource("9_i1s8s")]
+position = Vector2(576, 192)
+
+[node name="DisappearingPlatform10" parent="objects/disappering_platforms" unique_id=1683229622 instance=ExtResource("9_i1s8s")]
+position = Vector2(640, 192)
+
+[node name="DisappearingPlatform11" parent="objects/disappering_platforms" unique_id=2036983300 instance=ExtResource("9_i1s8s")]
+position = Vector2(704, 192)
+
+[node name="DisappearingPlatform12" parent="objects/disappering_platforms" unique_id=926973183 instance=ExtResource("9_i1s8s")]
+position = Vector2(768, 192)
+
+[node name="DisappearingPlatform13" parent="objects/disappering_platforms" unique_id=1381060566 instance=ExtResource("9_i1s8s")]
+position = Vector2(832, 192)
+
+[node name="DisappearingPlatform14" parent="objects/disappering_platforms" unique_id=1644781416 instance=ExtResource("9_i1s8s")]
+position = Vector2(896, 192)
+
+[node name="disappering_platforms" type="Node2D" parent="objects/disappering_platforms" unique_id=1439282279]
+
+[node name="DisappearingPlatform" parent="objects/disappering_platforms/disappering_platforms" unique_id=1242357966 instance=ExtResource("9_i1s8s")]
+position = Vector2(896, 448)
+
+[node name="DisappearingPlatform2" parent="objects/disappering_platforms/disappering_platforms" unique_id=2120483147 instance=ExtResource("9_i1s8s")]
+position = Vector2(960, 448)
+
+[node name="DisappearingPlatform3" parent="objects/disappering_platforms/disappering_platforms" unique_id=1655567197 instance=ExtResource("9_i1s8s")]
+position = Vector2(960, 192)
+
+[node name="DisappearingPlatform5" parent="objects/disappering_platforms/disappering_platforms" unique_id=1480223705 instance=ExtResource("9_i1s8s")]
+position = Vector2(256, 448)
+
+[node name="DisappearingPlatform6" parent="objects/disappering_platforms/disappering_platforms" unique_id=350972990 instance=ExtResource("9_i1s8s")]
+position = Vector2(320, 448)
+
+[node name="DisappearingPlatform7" parent="objects/disappering_platforms/disappering_platforms" unique_id=137135371 instance=ExtResource("9_i1s8s")]
+position = Vector2(384, 448)
+
+[node name="DisappearingPlatform8" parent="objects/disappering_platforms/disappering_platforms" unique_id=682046098 instance=ExtResource("9_i1s8s")]
+position = Vector2(448, 448)
+
+[node name="DisappearingPlatform9" parent="objects/disappering_platforms/disappering_platforms" unique_id=1969039555 instance=ExtResource("9_i1s8s")]
+position = Vector2(512, 448)
+
+[node name="DisappearingPlatform10" parent="objects/disappering_platforms/disappering_platforms" unique_id=116495201 instance=ExtResource("9_i1s8s")]
+position = Vector2(576, 448)
+
+[node name="DisappearingPlatform11" parent="objects/disappering_platforms/disappering_platforms" unique_id=892637039 instance=ExtResource("9_i1s8s")]
+position = Vector2(640, 448)
+
+[node name="DisappearingPlatform12" parent="objects/disappering_platforms/disappering_platforms" unique_id=1387037495 instance=ExtResource("9_i1s8s")]
+position = Vector2(704, 448)
+
+[node name="DisappearingPlatform13" parent="objects/disappering_platforms/disappering_platforms" unique_id=959401964 instance=ExtResource("9_i1s8s")]
+position = Vector2(768, 448)
+
+[node name="DisappearingPlatform14" parent="objects/disappering_platforms/disappering_platforms" unique_id=1646942181 instance=ExtResource("9_i1s8s")]
+position = Vector2(832, 448)
+
+[node name="Ghost" parent="objects" unique_id=1641207588 node_paths=PackedStringArray("player", "player_sprite") instance=ExtResource("10_b7q4o")]
+position = Vector2(1120, 312)
+player = NodePath("../../player")
+player_sprite = NodePath("../../player/AnimatedSprite2D")
+speed = 300.0
+
+[node name="player" parent="." unique_id=1398794018 instance=ExtResource("10_sijio")]
+position = Vector2(128, 752)
+
+[node name="zones" type="Node2D" parent="." unique_id=41767988]
+
+[node name="WinZone" parent="zones" unique_id=2008774154 instance=ExtResource("11_agqg5")]
+position = Vector2(64, 784)
+next_room = "uid://b405021x5nd0x"
+
+[node name="blast_zone" parent="zones" unique_id=408572967 instance=ExtResource("12_tc56o")]
+position = Vector2(0, -112)
+
+[node name="blast_zone2" parent="zones" unique_id=1770314545 instance=ExtResource("12_tc56o")]
+position = Vector2(0, 816)
+
+[editable path="player"]

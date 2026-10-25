@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c17qlyfd43u8u"]
+
+[ext_resource type="Script" uid="uid://b5d40ubce1lwo" path="res://Scripts/fail_screen.gd" id="1_mh2wt"]
+[ext_resource type="FontFile" uid="uid://dqh3e4540ccsi" path="res://Assets/fonts/nintendo-nes-font.ttf" id="2_ttfy3"]
+[ext_resource type="AudioStream" uid="uid://b6cknmjov0o4m" path="res://Assets/sounds/freesound_community-gameboy-pluck-41265.mp3" id="3_1u41c"]
+
+[node name="FailScreen" type="Control" unique_id=115227845]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mh2wt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=673291299]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.3529412)
+
+[node name="Label" type="Label" parent="." unique_id=411478399]
+z_index = 2
+layout_mode = 0
+offset_left = 400.0
+offset_top = 288.0
+offset_right = 880.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_ttfy3")
+theme_override_font_sizes/font_size = 48
+text = "TRY AGAIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fail" type="AudioStreamPlayer" parent="." unique_id=1362035867]
+stream = ExtResource("3_1u41c")
+pitch_scale = 0.48

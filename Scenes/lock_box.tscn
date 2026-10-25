@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bunni77vlkg4m"]
+
+[ext_resource type="Script" uid="uid://dcdy5si6gfksq" path="res://Scripts/objects/lock_box.gd" id="1_xmplt"]
+[ext_resource type="Texture2D" uid="uid://dd4ufxlhvktdb" path="res://Assets/Sprites/LockBox.png" id="2_wmbmg"]
+[ext_resource type="AudioStream" uid="uid://b108wk2hxy447" path="res://Assets/sounds/u_b32baquv5u-8-bit-explosion-10-340462.mp3" id="3_wmbmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 64)
+
+[node name="LockBox" type="StaticBody2D" unique_id=1400770242 node_paths=PackedStringArray("collision")]
+collision_layer = 2
+script = ExtResource("1_xmplt")
+collision = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1119539707]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_wmbmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130574630]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Bang" type="AudioStreamPlayer" parent="." unique_id=2014830473]
+stream = ExtResource("3_wmbmg")

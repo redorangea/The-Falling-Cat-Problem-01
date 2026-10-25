@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://drnen23dq7y7o"]
+
+[ext_resource type="AudioStream" uid="uid://kqpqydaoxsdh" path="res://Assets/sounds/music/fallingcatproblem.mp3" id="1_vdedm"]
+[ext_resource type="Script" uid="uid://c2478k7l7ybn4" path="res://Scripts/global/music.gd" id="1_wxbf8"]
+[ext_resource type="AudioStream" uid="uid://doq4pbde0xmws" path="res://Assets/sounds/freesound_community-insertcartridge-83732.mp3" id="3_ywkqb"]
+[ext_resource type="AudioStream" uid="uid://d0sdkwsheqjps" path="res://Assets/sounds/ada/AdaMew1.wav" id="4_ywkqb"]
+[ext_resource type="AudioStream" uid="uid://dykuqgunafdc2" path="res://Assets/sounds/ada/AdaMew2.wav" id="5_f071p"]
+[ext_resource type="AudioStream" uid="uid://bsangnmgyysmt" path="res://Assets/sounds/ada/AdaMew3.wav" id="6_womyx"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
+streams_count = 3
+stream_0/stream = ExtResource("4_ywkqb")
+stream_1/stream = ExtResource("5_f071p")
+stream_2/stream = ExtResource("6_womyx")
+
+[node name="Music" type="AudioStreamPlayer" unique_id=1729913497 node_paths=PackedStringArray("music", "startup", "mew", "mew_timer")]
+stream = ExtResource("1_vdedm")
+script = ExtResource("1_wxbf8")
+music = NodePath(".")
+startup = NodePath("CartridgePlayer")
+mew = NodePath("Mew")
+mew_timer = NodePath("MewTimer")
+
+[node name="CartridgePlayer" type="AudioStreamPlayer" parent="." unique_id=2013630939]
+stream = ExtResource("3_ywkqb")
+
+[node name="Mew" type="AudioStreamPlayer" parent="." unique_id=344208137]
+stream = SubResource("AudioStreamRandomizer_g4v7s")
+volume_db = 16.0
+
+[node name="MewTimer" type="Timer" parent="." unique_id=669635181]
+
+[connection signal="timeout" from="MewTimer" to="." method="_on_mew_timer_timeout"]

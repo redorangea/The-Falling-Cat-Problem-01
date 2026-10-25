@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bafnkyl0sbbjt"]
+
+[ext_resource type="PackedScene" uid="uid://d1fipkm82sh4d" path="res://Scenes/components/hitbox.tscn" id="2_shnuu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1536, 20)
+
+[node name="blast_zone" type="Area2D" unique_id=408572967 groups=["hazards"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129374250]
+position = Vector2(640, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Hitbox" parent="." unique_id=332707044 node_paths=PackedStringArray("detection_area") instance=ExtResource("2_shnuu")]
+detection_area = NodePath("..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

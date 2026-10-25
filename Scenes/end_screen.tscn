@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d05fqxmu15v64"]
+
+[ext_resource type="Script" uid="uid://8vxc8tgu4kbl" path="res://Scripts/end_screen.gd" id="1_gdxnu"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="2_8yanq"]
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="3_fi2y0"]
+[ext_resource type="FontFile" uid="uid://cq5xmmnbacsgy" path="res://Assets/fonts/8bitlim.ttf" id="4_em7vc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4suit"]
+line_spacing = 0.0
+font = ExtResource("4_em7vc")
+font_size = 96
+font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+outline_size = 1
+outline_color = Color(0.5882353, 0.5686275, 0.6666667, 1)
+
+[node name="EndScreen" type="Control" unique_id=474899858]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gdxnu")
+
+[node name="CRT" parent="." unique_id=1413880092 instance=ExtResource("2_8yanq")]
+
+[node name="Backgrounds" type="Control" parent="." unique_id=623597028]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Background" parent="Backgrounds" unique_id=791919943 instance=ExtResource("3_fi2y0")]
+layout_mode = 1
+
+[node name="BackgroundColor" parent="Backgrounds/Background" index="0" unique_id=789598074]
+color = Color(0.21960784, 0.050980393, 0.18039216, 1)
+
+[node name="BackgroundArrows" parent="Backgrounds/Background" index="1" unique_id=1632947107]
+visible = false
+
+[node name="EndLabel" type="Label" parent="." unique_id=1115062809]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 1280.0
+offset_bottom = 315.0
+text = "The End"
+label_settings = SubResource("LabelSettings_4suit")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=105542131]
+process_mode = 3
+z_index = 1
+layout_mode = 0
+offset_top = 448.0
+offset_right = 1280.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0.8156863, 0.5176471, 0.22745098, 1)
+theme_override_colors/font_focus_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_pressed_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_hover_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7764706, 0.3137255, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("4_em7vc")
+theme_override_font_sizes/font_size = 48
+text = "CLICK ME!"
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+
+[editable path="Backgrounds/Background"]

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dpxjf63ndvqql"]
+
+[ext_resource type="Script" uid="uid://d4cu3kkj2td4r" path="res://Scripts/main_game.gd" id="1_yy5br"]
+[ext_resource type="PackedScene" uid="uid://xsc1wrxw8qjc" path="res://Scenes/background.tscn" id="2_pxqrs"]
+[ext_resource type="PackedScene" uid="uid://dsiiekj2xt677" path="res://Scenes/crt.tscn" id="3_s4tf8"]
+[ext_resource type="PackedScene" uid="uid://c17qlyfd43u8u" path="res://Scenes/components/fail_screen.tscn" id="4_v1nd8"]
+[ext_resource type="PackedScene" uid="uid://dp1b1hcs8nijb" path="res://Scenes/leave_screen.tscn" id="5_bmh7s"]
+[ext_resource type="PackedScene" uid="uid://dwxcct4rxwnxh" path="res://Scenes/player.tscn" id="6_hw2fs"]
+[ext_resource type="PackedScene" uid="uid://b0mt5cpvft073" path="res://Scenes/tile_map_layer.tscn" id="7_xw6lm"]
+[ext_resource type="PackedScene" uid="uid://3qfxiqlqj15q" path="res://Scenes/moving_platform.tscn" id="8_hl08s"]
+[ext_resource type="PackedScene" uid="uid://ba426ivdx40sa" path="res://Scenes/key.tscn" id="9_60x20"]
+[ext_resource type="PackedScene" uid="uid://bunni77vlkg4m" path="res://Scenes/lock_box.tscn" id="10_mepl6"]
+[ext_resource type="PackedScene" uid="uid://bnfg6tnglqlay" path="res://Scenes/spike.tscn" id="11_gxhgf"]
+[ext_resource type="PackedScene" uid="uid://cp8tkvd6vfhtq" path="res://Scenes/ghost.tscn" id="12_pxqrs"]
+[ext_resource type="PackedScene" uid="uid://bspc3fxfi3isc" path="res://Scenes/win_zone.tscn" id="12_ymigg"]
+[ext_resource type="PackedScene" uid="uid://bafnkyl0sbbjt" path="res://Scenes/blast_zone.tscn" id="14_4bou0"]
+
+[node name="Room5" type="Node2D" unique_id=1766952595]
+script = ExtResource("1_yy5br")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=740534012]
+z_index = -1
+
+[node name="Background" parent="Visuals" unique_id=791919943 instance=ExtResource("2_pxqrs")]
+z_index = -1
+
+[node name="CRT" parent="Visuals" unique_id=1413880092 instance=ExtResource("3_s4tf8")]
+
+[node name="FailScreen" parent="Visuals" unique_id=115227845 instance=ExtResource("4_v1nd8")]
+z_index = 2
+
+[node name="LeaveScreen" parent="Visuals" unique_id=159286898 instance=ExtResource("5_bmh7s")]
+
+[node name="player" parent="." unique_id=1398794018 instance=ExtResource("6_hw2fs")]
+position = Vector2(128, -32)
+
+[node name="TileMapLayer" parent="." unique_id=1212374764 instance=ExtResource("7_xw6lm")]
+
+[node name="objects" type="Node2D" parent="." unique_id=1608188240]
+
+[node name="MovingPlatform" parent="objects" unique_id=1348151779 instance=ExtResource("8_hl08s")]
+position = Vector2(736, 384)
+speed = 2.0
+
+[node name="Key" parent="objects" unique_id=1074676594 instance=ExtResource("9_60x20")]
+position = Vector2(1120, 544)
+
+[node name="LockBox" parent="objects" unique_id=1400770242 instance=ExtResource("10_mepl6")]
+position = Vector2(64, 0)
+
+[node name="LockBox2" parent="objects" unique_id=960913163 instance=ExtResource("10_mepl6")]
+position = Vector2(128, 0)
+
+[node name="Spike" parent="objects" unique_id=106112012 instance=ExtResource("11_gxhgf")]
+position = Vector2(416, 160)
+
+[node name="Spike2" parent="objects" unique_id=1946420297 instance=ExtResource("11_gxhgf")]
+position = Vector2(224, 544)
+flip_v = true
+
+[node name="Ghost" parent="objects" unique_id=1641207588 node_paths=PackedStringArray("player", "player_sprite") instance=ExtResource("12_pxqrs")]
+position = Vector2(696, 88)
+player = NodePath("../../player")
+player_sprite = NodePath("../../player/AnimatedSprite2D")
+speed = 90.0
+
+[node name="Ghost2" parent="objects" unique_id=1899074404 node_paths=PackedStringArray("player", "player_sprite") instance=ExtResource("12_pxqrs")]
+position = Vector2(984, 472)
+player = NodePath("../../player")
+player_sprite = NodePath("../../player/AnimatedSprite2D")
+speed = 90.0
+
+[node name="zones" type="Node2D" parent="." unique_id=1084436209]
+
+[node name="WinZone" parent="zones" unique_id=2008774154 instance=ExtResource("12_ymigg")]
+position = Vector2(64, -136)
+next_room = "uid://c186xxfpqe8au"
+
+[node name="blast_zone" parent="zones" unique_id=408572967 instance=ExtResource("14_4bou0")]
+position = Vector2(0, -112)
+
+[node name="blast_zone2" parent="zones" unique_id=1679443995 instance=ExtResource("14_4bou0")]
+position = Vector2(0, 816)
+
+[editable path="player"]

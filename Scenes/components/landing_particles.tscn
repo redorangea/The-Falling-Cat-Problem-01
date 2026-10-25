@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b64fwkrppqya5"]
+
+[ext_resource type="Script" uid="uid://bok4oxg0jmwa6" path="res://Scripts/components/landing_particles.gd" id="1_58c23"]
+
+[node name="landing_particles" type="Node" unique_id=404084437]
+script = ExtResource("1_58c23")

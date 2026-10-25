@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://qs45lgqewb6s"]
+
+[ext_resource type="Script" uid="uid://dyxdqjj8wngd0" path="res://Scripts/objects/carousel_platform.gd" id="1_w3kty"]
+[ext_resource type="Texture2D" uid="uid://cght3c5waovq0" path="res://Assets/Sprites/Carousel_horse.png" id="1_wfw38"]
+[ext_resource type="PackedScene" uid="uid://bgfbu4hyqn718" path="res://Scenes/components/platform.tscn" id="3_ulyjw"]
+
+[sub_resource type="Curve2D" id="Curve2D_mgc0q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 128, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_w3kty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ulyjw"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5333333),
+"transitions": PackedFloat32Array(-1.56),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o78a"]
+_data = {
+&"RESET": SubResource("Animation_w3kty"),
+&"move": SubResource("Animation_ulyjw")
+}
+
+[node name="CarouselPlatform" type="Path2D" unique_id=1465435966 node_paths=PackedStringArray("platform_component")]
+curve = SubResource("Curve2D_mgc0q")
+script = ExtResource("1_w3kty")
+platform_component = NodePath("Platform")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=295263556]
+position = Vector2(-128, 0)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=2012185041]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1913471141]
+position = Vector2(-128, 0)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=244765899]
+scale = Vector2(4, 4)
+texture = ExtResource("1_wfw38")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D" unique_id=982401687]
+polygon = PackedVector2Array(40, -40, -48, -40, 0, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=448831847]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_7o78a")
+
+[node name="Platform" parent="." unique_id=985810355 node_paths=PackedStringArray("path", "animation") instance=ExtResource("3_ulyjw")]
+path = NodePath("../PathFollow2D")
+animation = NodePath("../AnimationPlayer")

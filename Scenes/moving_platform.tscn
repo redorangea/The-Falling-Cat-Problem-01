@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3qfxiqlqj15q"]
+
+[ext_resource type="Script" uid="uid://cjfu12pvw7uwg" path="res://Scripts/objects/moving_platform.gd" id="1_anqd2"]
+[ext_resource type="Texture2D" uid="uid://cght3c5waovq0" path="res://Assets/Sprites/Carousel_horse.png" id="1_vvyo4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vvyo4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MovingPlatform" type="Node2D" unique_id=1348151779]
+script = ExtResource("1_anqd2")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1890322128]
+scale = Vector2(4, 4)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=1047622526]
+polygon = PackedVector2Array(-12, -10, 10, -10, 0, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=475511022]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
